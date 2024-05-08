@@ -1,21 +1,7 @@
 import { forwardRef } from "react";
 import { twMerge } from "tailwind-merge";
 
-/**
- * Props for the Button component.
- */
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
-
-/**
- * A customizable button component.
- * @param className - Additional CSS classes for the button.
- * @param children - The content of the button.
- * @param disabled - Whether the button is disabled.
- * @param type - The type of the button.
- * @param props - Additional props for the button.
- * @param ref - Reference to the button element.
- * @returns The rendered Button component.
- */
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, children, disabled, type = "button", ...props }, ref) => {
