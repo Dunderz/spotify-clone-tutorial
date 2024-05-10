@@ -13,6 +13,9 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           py-3 disabled:cursor-not-allowed disabled:opacity-50 text-black font-bold hover:opacity-75 transition`,
           className
         )}
+        disabled={disabled}
+        ref={ref}
+        {...props}
       >
         {children}
       </button>
