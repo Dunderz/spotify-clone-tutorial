@@ -28,7 +28,7 @@ export const MyUserContextProvider = (props: Props) => {
     session,
     isLoading: isLoadingUser,
     supabaseClient: supabase,
-  } = useSessionContext();
+  } = useSessionContext(); // useSessionContext is a hook from the auth-helpers-react package
   const user = useSupaUser();
   const accessToken = session?.access_token ?? null;
   const [isLoadingData, setIsLoadingData] = useState(false);
