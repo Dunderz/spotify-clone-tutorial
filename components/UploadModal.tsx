@@ -1,11 +1,14 @@
 "use client";
 
-import { FieldValues, useForm } from "react-hook-form";
+import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
+import { useState } from "react";
 
 import useUploadModal from "@/hooks/useUploadModal";
 import Modal from "./Modal";
+import Input from "./Input";
 
 const UploadModal = () => {
+  const [isLoading, setIsLoading] = useState(false); // [1
   const uploadModal = useUploadModal();
 
   const { register, handleSubmit, reset } = useForm<FieldValues>({
@@ -24,7 +27,7 @@ const UploadModal = () => {
     }
   };
 
-  const onSubmit = () => {
+  const onSubmit: SubmitHandler<FieldValues> = (values) => {
     // Upload to supabase
   };
 
@@ -35,7 +38,14 @@ const UploadModal = () => {
       isOpen={uploadModal.isOpen}
       onChange={onChange}
     >
-      Form
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <Input
+          id="title"
+          disabled={isLoading}
+          {...register("title", { required: true })}
+          placeholder="Song title"
+        />
+      </form>
     </Modal>
   );
 };
